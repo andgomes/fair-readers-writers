@@ -1,4 +1,4 @@
-package readerwriter;
+package readerwriter.semaphore;
 
 import java.util.concurrent.Semaphore;
 
