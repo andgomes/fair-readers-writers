@@ -3,6 +3,7 @@ package readerwriter.semaphore;
 import static readerwriter.semaphore.SharedVariables.dr;
 import static readerwriter.semaphore.SharedVariables.dw;
 import static readerwriter.semaphore.SharedVariables.e;
+import static readerwriter.semaphore.SharedVariables.nr;
 import static readerwriter.semaphore.SharedVariables.nw;
 import static readerwriter.semaphore.SharedVariables.r;
 import static readerwriter.semaphore.SharedVariables.w;
@@ -24,7 +25,7 @@ public class Writers implements Runnable {
 	
 				e.acquire();
 	
-				if (dr > 0) {
+				if (nr > 0 || nw > 0 || dr > 0) {
 	
 					dw++;
 					e.release();
@@ -37,6 +38,13 @@ public class Writers implements Runnable {
 				e.release();
 	
 				System.out.println("Writing the database");
+				
+				// Simulação do tempo de escrita
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 	
 				e.acquire();
 	
@@ -56,12 +64,6 @@ public class Writers implements Runnable {
 					e.release();
 				}
 	
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-	
-			try {
-				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -9,10 +9,14 @@ public class MainExecutor {
 
 		ReadWriteController rwController = new ReadWriteController();
 		
+		System.out.println("Somente processos readers...");
+		
 		new Readers(rwController);
 
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
+		System.out.println("Processos writers começam a pedir acesso...");
+		
 		new Writers(rwController);
 
 	}

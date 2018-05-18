@@ -23,6 +23,7 @@ public class Writers implements Runnable {
 				
 				System.out.println("Writing the database");
 				
+				// Simulação do tempo de escrita
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {

@@ -23,6 +23,7 @@ public class Readers implements Runnable {
 				
 				System.out.println("Reading the database");
 				
+				// Simulação do tempo de leitura
 				try {
 					Thread.sleep(2000);
 				} catch (InterruptedException e) {
