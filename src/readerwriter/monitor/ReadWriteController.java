@@ -22,8 +22,6 @@ public class ReadWriteController {
 		
 		try {
 			
-			System.out.println("requestRead()");
-			
 			if (nw > 0 || dw > 0) {
 				
 				++dr;
@@ -46,8 +44,6 @@ public class ReadWriteController {
 		
 		try {
 			
-			System.out.println("releaseRead()");
-			
 			nr = nr - 1;
 			
 			if (dw > 0) oktowrite.signal();
@@ -63,8 +59,6 @@ public class ReadWriteController {
 		lock.lock();
 		
 		try {
-			
-			System.out.println("requestWrite()");
 			
 			if (nr > 0 || nw > 0 || dr > 0) {
 				
@@ -87,8 +81,6 @@ public class ReadWriteController {
 		lock.lock();
 		
 		try {
-			
-			System.out.println("releaseWrite()");
 			
 			nw = nw - 1;
 			
